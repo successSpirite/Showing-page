@@ -1,0 +1,246 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+body, html {
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+.main-container{
+     position: relative;         /* Makes it the parent for absolute positioning */
+      width: 100%;
+      height: 100vh;             /* Full screen height */
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;          /* Hides image overflow when resizing */
+      color: white;
+      text-align: center;
+    
+}
+.main-container img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;         /* Makes it fit across all devices */
+      z-index: -1;               /* Sends it behind content */
+      transition: 0.8s ease;  
+
+}
+.NavBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1em;
+    width: 100%;
+    height: 3em;
+    background-color: rgb(70, 66, 66, .3);
+    
+}
+.NavBar ul{
+    display: flex;
+    /* flex-direction: row */
+    gap: 1em;
+    font-size: calc(.4em + .5vw);
+    font-weight: 800;
+    cursor: pointer;
+    color: #000;
+    margin-inline: 1em;
+}
+.NavBar h1{
+    font-size: calc(.7em + .8vw);
+    font-weight: 800;
+    cursor: pointer;
+    color: #000;
+}
+.NavBar .join{
+    background-color: #000;
+    padding: calc(.4em + .2vw);
+    font-size: calc(.3em + .4vw);
+    font-weight: 800;
+    cursor: pointer;
+}
+.midSection{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 10em;
+}
+.leftSide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: .9em;
+    
+}
+.leftSide p{
+    color: #ffffffe1;
+    font-size: calc(.5em + .6vw);
+    font-weight: 600;
+}
+.leftSide h1{
+  font-size: calc(.7em + .8vw);
+    font-weight: 800;
+}
+.leftSide .lastPart{
+    display: flex;
+    gap: 1em;
+}
+.lastPart .join, .lastPart span{
+    background-color: #000;
+    padding-inline: calc(.6em + .7vw);
+    padding-block: calc(.1em + .2vw);
+    border-radius: 3em;
+    font-size: calc(.5em + .6vw);
+    font-weight: 800;
+
+}
+.lastPart span{
+    background-color: #555;
+
+}
+.rightSide{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 1.5em;
+    z-index: 1;
+    margin-inline-end: 1em;
+
+}
+.rightSide ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 1em;
+}
+.rightSide ul li{
+    background-color: #ffff;
+    padding-inline: 1em;
+    padding-block: .3em;
+    border-radius: 2em;
+    text-align: center;
+    font-size: calc(.6em + .7vw);
+    color: #000;
+}
+.rightSide ul li:hover{
+    background-color: #555;
+}
+
+
+/*SHARING PAGE */
+.mainContainer{
+    display: flex;
+}
+
+.inputBox{
+  margin: 2em 0 0 0 ;
+}
+.inputBox #active{
+  width: 7em;
+  height: 2em;
+  cursor: pointer;
+border-radius: .5em ;
+
+}
+.showing-section-Area {
+ display: none;
+  position: fixed;
+  top: 0%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  /* background: #ffac08; */
+  background: #000;
+  clip-path: circle(25px at calc(100% - 45px) 45px);
+  transition: all 0.3s ease-in-out;
+  
+  
+}
+.showing-section-Area #img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#active:checked ~ .showing-section-Area{
+  clip-path: circle(75%);
+}
+
+
+.menu-btn {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  right: 20px;
+  top: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff;
+  color: black;
+  cursor: pointer;
+  background: #ffac08;
+  transition: all 0.3s ease-in-out;
+}
+#active:checked ~ .menu-btn {
+  display: none;
+  color: #ffff;
+  }
+#active:checked ~ .menu-btn i::before {
+  content: "\f00d";
+}
+.ShowHeader{
+  
+  color: #ffac08;
+   text-transform: uppercase;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+/* @media (max-width: 768px) {
+   .midSection{
+    top: 10%;
+  
+}  */
+
+@media (max-width: 425px) {
+  .leftSide h1{
+    font-size: calc(.6em + .7vw);
+  }
+  .rightSide, .leftSide{
+
+    height: 100%;
+  }
+  
+  .rightSide, .leftSide p{
+    font-size: calc(.5em + .6vw);
+  }
+
+  .rightSide{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .lastPart .join, .lastPart span{
+    font-size: calc(.3em + .4vw);
+  }
+}
